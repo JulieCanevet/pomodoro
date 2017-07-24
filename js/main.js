@@ -2,8 +2,9 @@ var tempsBreak = $('#timeBreak');
 var tempsTaf = $('#timeWork');
 var initBreak = 00;
 var initTaf = 00;
-var tailleSab = 00;
-	
+var tailleSabWk = 0;
+var tailleSabBr = 0;
+
 	tempsBreak.html(initBreak);
 	tempsTaf.html(initTaf);
 
@@ -30,35 +31,53 @@ $('#moinsBreak').click(function(){
 
 $('#go').click(function() {
 		
-		var decompte = initTaf;
+		var decompteWork = initTaf;
 		var decompteBreak = initBreak;
-		$('#temps').html(decompte + ' secondes');
-		console.log(decompte);
-		
-		setInterval(function (){
+
+		var interval = setInterval(function (){
 			
-			if(decompte > 0) {
-			decompte--;
-			$('#temps').html(decompte + ' secondes');
-			tailleSab ++;
-			$('#sablier').height(tailleSab + 'px');
-		}
-		
-		else if (decompte == 0){
-		$('#temps').html(decompteBreak)
-			decompteBreak--;
-			// $('#temps').html(initBreak);
-			$('#sablier').css("background-color", "blue");
-
-			if (decompteBreak < 0) {
-				decompte = initTaf;
-				decompteBreak = initBreak;
-				console.log(decompte);
+			if(decompteWork >= 0) {
+			
+				$('#temps').html('temps de travail : ' + decompteWork + ' secondes');
+				decompteWork--;
+				tailleSabWk ++;
+				$('#sablierWork').css('background-color', 'yellow');
+				$('#sablierBreak').height(tailleSabBr + 'px');
+				$('#sablierWork').height(tailleSabWk + 'px');
 			}
-		}
+		
+			else if ((decompteWork < 0) && (decompteBreak >= 0)){
 
-	}, 1000);
+				tailleSabWk = 0;
+				$('#sablierWork').height(tailleSabWk + 'px');
+
+				$('#temps').html('temps de break : ' + decompteBreak + ' secondes');
+				decompteBreak--;
+	
+				tailleSabBr ++;
+				console.log(tailleSabBr + 'px');
+				$('#sablierBreak').height(tailleSabBr + 'px');
+				console.log($('#sablierBreak').height() + 'px');		
+				$('#sablierBreak').css('background-color', 'orange');
+				console.log("ici");
+
+				if (decompteBreak < 0) {
+					console.log("et ici");
+					tailleSabBr = 0;
+					decompteWork = initTaf;
+					decompteBreak = initBreak;
+				}
+			}
+			
+		}, 1000);
+			
+
+	$('#stop').click(function () {
+		clearInterval(interval);
+	});
+
 });
+
 
 
 

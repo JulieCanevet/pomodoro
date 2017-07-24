@@ -124,13 +124,39 @@ textarea {
     border: 1px solid black;
 }
 
-#plusWork, #plusBreak, #moinsWork, #moinsBreak, #go {
+#plusWork, #plusBreak, #moinsWork, #moinsBreak, #go, #stop {
     cursor: pointer;
 }
 
-#sablier {
-    background-color: yellow;
+.stopGo {
+    display: flex;
+    justify-content: center;
 }
+
+#go, #stop {
+    width : 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
