@@ -104,6 +104,7 @@ textarea {
 .break, .work, .decompte {
     width: 28%;
     text-align: center;
+    boredr: 1px solid black;
 }
 
 .break {
@@ -123,8 +124,13 @@ textarea {
     border: 1px solid black;
 }
 
+#plusWork, #plusBreak, #moinsWork, #moinsBreak, #go {
+    cursor: pointer;
+}
 
-
+#sablier {
+    background-color: yellow;
+}
 
 
 
