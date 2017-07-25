@@ -33,36 +33,33 @@ $('#go').click(function() {
 		
 		var decompteWork = initTaf;
 		var decompteBreak = initBreak;
-
+		$('#sablier').height(initTaf+ "em");
 		var interval = setInterval(function (){
 			
 			if(decompteWork >= 0) {
-			
+				$('#sablier').height(initTaf + 1 + "em");
 				$('#temps').html('temps de travail : ' + decompteWork + ' secondes');
 				decompteWork--;
 				tailleSabWk ++;
 				$('#sablierWork').css('background-color', 'yellow');
-				$('#sablierBreak').height(tailleSabBr + 'px');
-				$('#sablierWork').height(tailleSabWk + 'px');
+				$('#sablierBreak').height(tailleSabBr + 'em');
+				$('#sablierWork').height(tailleSabWk + 'em');
 			}
 		
 			else if ((decompteWork < 0) && (decompteBreak >= 0)){
 
 				tailleSabWk = 0;
-				$('#sablierWork').height(tailleSabWk + 'px');
+				$('#sablierWork').height(tailleSabWk + 'em');
+				$('#sablier').height(initBreak + 1 + "em");
 
 				$('#temps').html('temps de break : ' + decompteBreak + ' secondes');
 				decompteBreak--;
 	
 				tailleSabBr ++;
-				console.log(tailleSabBr + 'px');
-				$('#sablierBreak').height(tailleSabBr + 'px');
-				console.log($('#sablierBreak').height() + 'px');		
+				$('#sablierBreak').height(tailleSabBr + 'em');
 				$('#sablierBreak').css('background-color', 'orange');
-				console.log("ici");
 
 				if (decompteBreak < 0) {
-					console.log("et ici");
 					tailleSabBr = 0;
 					decompteWork = initTaf;
 					decompteBreak = initBreak;

@@ -107,19 +107,7 @@ textarea {
     boredr: 1px solid black;
 }
 
-.break {
-    background-color: red;
-}
-
-.work {
-    background-color: blue;
-}
-
-.decompte {
-    background-color: green;
-}
-
-#timeWork, #timeBreak {
+#timeWork, #timeBreak, #temps {
     height: 30px;
     border: 1px solid black;
 }
@@ -139,6 +127,11 @@ textarea {
     border-radius: 100%;
     border: 1px solid black;
     text-align: center;
+    margin: 1em;
+}
+
+#sablier {
+    border: 1px solid black;
 }
 
 
