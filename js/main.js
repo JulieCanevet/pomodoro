@@ -41,7 +41,7 @@ $('#go').click(function() {
 				$('#temps').html('temps de travail : ' + decompteWork + ' secondes');
 				decompteWork--;
 				tailleSabWk ++;
-				$('#sablierWork').css('background-color', '#52ABEB');
+				$('#sablierWork').css('background-color', 'rgba(240, 95, 55)');
 				$('#sablierBreak').height(tailleSabBr + 'em');
 				$('#sablierWork').height(tailleSabWk + 'em');
 			}
@@ -57,7 +57,7 @@ $('#go').click(function() {
 	
 				tailleSabBr ++;
 				$('#sablierBreak').height(tailleSabBr + 'em');
-				$('#sablierBreak').css('background-color', '#52D9EB');
+				$('#sablierBreak').css('background-color', 'rgba(240, 151, 55)');
 
 				if (decompteBreak < 0) {
 					tailleSabBr = 0;
